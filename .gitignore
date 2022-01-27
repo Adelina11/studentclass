@@ -1,18 +1,51 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+1) static class Student {
+    public String name;
+    public int grade;
+    public Parent parent;
 
-# Other files and folders
-.settings/
-
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+    public Student (String name, int grade, String parentName, String parentPhoneNumber) {
+        this.name = name;
+        this.grade = grade;
+        this.parent = new Parent(parentName, parentPhoneNumber);
+    }
+    public Student (String name, int grade, Parent parent) {
+        this(name, grade, parent.pName, parent.PhoneNumber);
+    }
+    public static class Parent {
+        String pName;
+        String PhoneNumber;
+        public Parent (String pName, String PhoneNumber){
+            this.pName = pName;
+            this.PhoneNumber = PhoneNumber;
+        }
+    }
+}
+}
+2) public void getTeacher(String fam){
+class Person {
+    final String fam;
+    public Person (String fam) {
+        this.fam = fam;
+    }
+    String output() {
+        String[] name = fam.split(" ");
+        return "Фамилия: " + name[0] + "Имя: " + name[1] + "Отчество: " + name[2];
+    }
+}
+System.out.print(new Person(fio).output());
+                }
+3) public class MainActivity extends AppCompatActivity {
+    AppCompatActivity context = this;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button but = findViewById(R.id.btn);
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Сообщение", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+}
